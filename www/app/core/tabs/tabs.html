@@ -1,0 +1,47 @@
+<ion-view name="tabs">
+<ion-tabs class="tabs-positive tabs-icon-only">
+<div class="tabtext">
+  <ion-tab title="Store Directory" ui-sref="stores">
+    <!-- Tab 1 content -->
+  </ion-tab>
+
+
+  <ion-tab title="Stylist" ui-sref="stylists">
+    <!-- Tab 3 content -->
+  </div>
+  </ion-tab>
+
+</ion-tabs>
+
+
+ $stateProvider
+    .state('tabs', {
+      url: "/tab",
+      abstract: true,
+      templateUrl: "app/core/tabs/tabs.html"
+    })
+    .state('tabs.home', {
+      url: "/tabs",
+      views: {
+        'home-tab': {
+          templateUrl: "app/components/stores/stores.html",
+          controller: 'HomeTabCtrl'
+        }
+      }
+    })
+    .state('tabs.stores', {
+      url: "/stores",
+      views: {
+        'stores-tab': {
+          templateUrl: 'app/components/stores/stores.html'
+        }
+      }
+    })
+    .state('tabs.stylists', {
+      url: "/stylists",
+      views: {
+        'stylists-tab': {
+          templateUrl: "app/components/stylists/stylists.html"
+        }
+      }
+    });

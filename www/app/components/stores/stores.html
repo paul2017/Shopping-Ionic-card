@@ -1,0 +1,57 @@
+<ion-modal-view>
+<ion-view name="stores"><ion-pane ng-controller="storesCtrl">
+<ion-nav-bar>
+  <ion-nav-back-button class="button-clear">
+    <i class="ion-arrow-left-c"></i> Back 
+  </ion-nav-back-button>
+<ion-nav-title>
+        <img ui-sref="cards" class="title-image" src="http://stashdapp.com/img/stashdapplogo.png">
+    </ion-nav-title>
+</ion-nav-bar>
+
+
+            <ion-content>
+<button class="button button-full button-positive">
+  Featured Stores
+</button>
+
+  <div class=storerow ng-repeat="store in stores track by $index" ng-if="$index%2==0">
+    <div
+      ng-repeat="i in [$index,$index+1]"
+      ng-if="stores[i]!=null" class="ngrepeatstore">
+        <a href="#/storeshop/{{stores[i].id}}" native-options="{type: 'flip', direction:'down'}">
+            <img class="storegrid" src="{{stores[i].imagefemale}}">
+<div class="shopbanner">
+<img src="{{stores[i].logo}}"></div>
+</div></a>
+    </div>
+
+<button class="button button-full button-positive">
+  Male Stores
+</button>
+
+                <div class=storerow ng-repeat="store in stores track by $index" ng-if="$index%2==0">
+                    <div
+                            ng-repeat="i in [$index,$index+1]"
+                            ng-if="stores[i]!=null" class="ngrepeatstore">
+                        <a href="#/storeshop/{{stores[i].id}}" native-options="{type: 'flip', direction:'down'}"><img width="100%" src="{{stores[i].imagemale}}"></a>
+                        <div class="shopbanner">
+                            <img src="{{stores[i].logo}}"></div>
+                    </div>
+                </div>
+
+        </ion-content>
+
+<span class="backgroundblur">
+    <div class="faketab">
+        <table>
+            <tr>
+                <td><a native-ui-sref="stores" ng-click="refinetype()" native-ui-sref-opts="{reload: true}" native-options="{type: 'slide', direction:'left'}" style="border-bottom: 2px solid #3BB6A0;">STORE DIRECTORY</a></td>
+                <td><a native-ui-sref="stylists" ng-click="refinetype()" native-ui-sref-opts="{reload: true}" native-options="{type: 'slide', direction:'left'}">STYLIST</a></td>
+            </tr>
+        </table>
+    </div>
+
+</ion-view>
+</ion-modal-view>
+

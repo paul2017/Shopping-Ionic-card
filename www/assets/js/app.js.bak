@@ -1,0 +1,121 @@
+// Ionic Starter App
+
+// angular.module is a global place for creating, registering and retrieving Angular modules
+// 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
+// the 2nd parameter is an array of 'requires'
+angular.module('starter', ['ionic'])
+
+.run(function($ionicPlatform) {
+  $ionicPlatform.ready(function() {
+    // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
+    // for form inputs)
+    if(window.cordova && window.cordova.plugins.Keyboard) {
+      cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+    }
+    if(window.StatusBar) {
+      StatusBar.styleDefault();
+    }
+  });
+})
+
+angular.module('starter', ['ionic', 'ionic.contrib.ui.tinderCards'])
+
+
+.config(function($stateProvider, $urlRouterProvider) {
+
+})
+
+.directive('noScroll', function($document) {
+
+  return {
+    restrict: 'A',
+    link: function($scope, $element, $attr) {
+
+      $document.on('touchmove', function(e) {
+        e.preventDefault();
+      });
+    }
+  }
+})
+
+.controller('IntroCtrl', function ($scope, $state, $ionicSlideBoxDelegate) {
+
+  // Called to navigate to the main app
+  $scope.startApp = function () {
+    $state.go('main');
+  };
+  $scope.next = function () {
+    $ionicSlideBoxDelegate.next();
+  };
+  $scope.previous = function () {
+    $ionicSlideBoxDelegate.previous();
+  };
+
+  // Called each time the slide changes
+  $scope.slideChanged = function (index) {
+    $scope.slideIndex = index;
+  };
+})
+
+.controller('MainCtrl', function ($scope, $state) {
+  console.log('MainCtrl');
+
+  $scope.toIntro = function () {
+    $state.go('intro');
+  };
+});
+
+.controller('CardsCtrl', function($scope, TDCardDelegate) {
+  console.log('CARDS CTRL');
+  var cardTypes = [
+{ image: '	http://images.menswearhouse.com/is/image/TMW/MW40_201T_LUCKY_JEANS_PANTS_SHORTS_BLUE_MAIN?01AD=387H5RL_Ap3SLVDXw_VZ7xYfd2t2gxIhF1kzYIpKeVAiqyVYnP-w5iQ&01RI=5FFD3E07FBA24AE&01NA=na&$40Zoom$'	 },
+{ image: '	http://cdn-images.farfetch.com/10/50/77/19/10507719_2623009_800.jpg'	 },
+{ image: '	http://cdn-images.farfetch.com/10/51/42/30/10514230_2568151_800.jpg'	 },
+{ image: '	http://cdn-images.farfetch.com/10/51/76/79/10517679_2597516_800.jpg'	 },
+{ image: '	http://cdn-images.farfetch.com/11/08/54/23/11085423_5216338_800.jpg'	 },
+{ image: '	http://cdn-images.farfetch.com/10/51/34/59/10513459_2546742_800.jpg'	 },
+{ image: '	http://cdn-images.farfetch.com/10/51/36/58/10513658_2563140_800.jpg'	 },
+{ image: '	http://cdn-images.farfetch.com/10/52/40/91/10524091_2644128_800.jpg'	 },
+{ image: '	http://cdn-images.farfetch.com/11/03/74/46/11037446_5038659_800.jpg'	 },
+{ image: '	http://cdn-images.farfetch.com/11/03/75/71/11037571_5004590_800.jpg'	 },
+{ image: '	http://cdn-images.farfetch.com/11/03/82/77/11038277_4998537_800.jpg'	 },
+{ image: '	http://cdn-images.farfetch.com/11/07/94/85/11079485_5217612_800.jpg'	 },
+{ image: '	http://cdn-images.farfetch.com/11/08/09/87/11080987_5244521_800.jpg'	 },
+{ image: '	http://cdn-images.farfetch.com/11/08/10/98/11081098_5229706_800.jpg'	 },
+{ image: '	http://cdn-images.farfetch.com/11/08/45/78/11084578_5222137_800.jpg'	 },
+{ image: '	http://cdn-images.farfetch.com/10/56/54/11/10565411_2823335_800.jpg'	 },
+{ image: '	http://cdn-images.farfetch.com/10/59/67/53/10596753_2975826_800.jpg'	 },
+{ image: '	http://cdn-images.farfetch.com/10/66/79/37/10667937_3356104_800.jpg'	 },
+{ image: '	http://cdn-images.farfetch.com/10/66/91/84/10669184_3356619_800.jpg'	 },
+{ image: '	http://cdn-images.farfetch.com/10/67/50/41/10675041_3355957_800.jpg'	 },
+{ image: '	http://cdn-images.farfetch.com/10/78/73/72/10787372_3840185_800.jpg'	 },
+{ image: '	http://cdn-images.farfetch.com/10/79/91/48/10799148_3884107_800.jpg'	 },
+{ image: '	http://cdn-images.farfetch.com/10/80/07/84/10800784_3888773_800.jpg'	 },
+{ image: '	http://cdn-images.farfetch.com/10/81/61/58/10816158_3970261_800.jpg'	 },
+{ image: '	http://cdn-images.farfetch.com/10/83/34/49/10833449_4083814_800.jpg'	 },
+
+  ];
+
+  $scope.cards = Array.prototype.slice.call(cardTypes, 0);
+
+  $scope.cardDestroyed = function(index) {
+    $scope.cards.splice(index, 1);
+  };
+
+  $scope.addCard = function() {
+    var newCard = cardTypes[Math.floor(Math.random() * cardTypes.length)];
+    newCard.id = Math.random();
+    $scope.cards.push(angular.extend({}, newCard));
+  }
+})
+
+.controller('CardCtrl', function($scope, TDCardDelegate) {
+  $scope.cardSwipedLeft = function(index) {
+    console.log('LEFT SWIPE');
+    $scope.addCard();
+  };
+  $scope.cardSwipedRight = function(index) {
+    console.log('RIGHT SWIPE');
+    $scope.addCard();
+  };
+});

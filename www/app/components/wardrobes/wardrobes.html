@@ -1,0 +1,30 @@
+<ion-view name="wardrobes">
+  <ion-pane ng-controller="wardrobesCtrl">
+    <ion-nav-bar>
+      <ion-nav-back-button class="button-clear">
+        <i class="ion-arrow-left-c"></i> Back
+      </ion-nav-back-button>
+      <ion-nav-title>
+        <img ui-sref="cards" class="title-image" src="http://stashdapp.com/img/stashdapplogo.png">
+      </ion-nav-title>
+    </ion-nav-bar>
+
+    <ion-content>
+
+      <ion-list id="walist"  show-delete="shouldShowDelete"  show-reorder="shouldShowReorder"  can-swipe="listCanSwipe">
+        <ion-wardrobe ng-repeat="wardrobe in wardrobes" class="wardrobe-thumbnail-right">
+          <ion-list show-delete="false" can-swipe="true">
+            <ion-item href="#/product/{{wardrobe.vari}}" ng-click="warprovisit()" native-options="{type: 'slide', direction:'up'}" class="item item-avatar">
+              <img src="{{wardrobe.image}}">
+              <h2>{{wardrobe.name}}</h2>
+              <p>${{wardrobe.price}}</p>
+              <ion-option-button class="button-assertive" ng-click="remove(wardrobe)">
+                Delete
+              </ion-option-button>
+            </ion-item>
+          </ion-list>
+        </ion-wardrobe>
+      </ion-list>
+    </ion-content>
+  </ion-pane>
+</ion-view>

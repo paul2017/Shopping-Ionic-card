@@ -1,0 +1,43 @@
+<ion-view name="login" hide-nav-bar="true" ng-controller="LoginController" >
+    <div style="height:100%;padding: 0 30px;">
+        <!--<div class="list" style="margin-top: 150px;">
+            <label class="item item-input item-floating-label" >
+            <span class="input-label">First Name</span>
+            <input type="text" placeholder="First Name" style="background: #fff;padding: 5px;">
+            </label>
+            <label class="item item-input item-floating-label">
+            <span class="input-label">Last Name</span>
+            <input type="text" placeholder="Last Name" style="background: #fff;padding: 5px;">
+            </label>
+            <label class="item item-input item-floating-label">
+            <span class="input-label">Email</span>
+            <input type="text" placeholder="Email" style="background: #fff;padding: 5px;">
+            </label>
+        </div>-->
+        <div style="height: 70%;">
+          <ion-slide-box on-slide-changed="slideHasChanged($index)">
+            <ion-slide>
+              <img style="width:100%;" src="http://www.stashdapp.com/azure/ios/openingScreen1@2x.png"></center>
+            </ion-slide>
+            <ion-slide>
+              <img style="width:100%;" src="http://www.stashdapp.com/azure/ios/openingScreen2@2x.png"></center>
+            </ion-slide>
+            <ion-slide>
+              <img style="width:100%;" src="http://www.stashdapp.com/azure/ios/openingScreen3@2x.png"></center>
+            </ion-slide>
+            <ion-slide>
+              <img style="width:100%;" src="http://www.stashdapp.com/azure/ios/openingScreen4@2x.png"></center>
+            </ion-slide>
+          </ion-slide-box>
+            <!--<span style="position: absolute;width: 80%;top:40%;color:#ffffff;font-size: 30px;line-height: 20px;text-align: center;">The World's fashion at your finger tips</span>-->
+
+        </div>
+        <button class="facebook-sign-in button button-block button-positive" ng-click="facebookSignIn()">
+            Login with Facebook
+        </button>
+         <button class="facebook-sign-in button button-block button-positive" native-ui-sref="cards" ng-click="eventlog()" native-ui-sref-opts="{reload: true}" native-options="{type: 'slide', direction:'down'}">
+            Go to app
+        </button>
+    </div>
+
+</ion-view>

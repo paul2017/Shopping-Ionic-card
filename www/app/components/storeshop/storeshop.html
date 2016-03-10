@@ -1,0 +1,43 @@
+<ion-view name="storeshop">
+        <ion-pane>
+                    <!-- <ion-spinner icon="spiral"></ion-spinner>  To be centered behind cards-->
+                    <!--REMOVED: on-swipe="cardSwiped($index)"-->
+            <img class="storelogo-image" ng-src="{{storelogo.logo}}">
+                    <td-cards>
+                        <td-card ng-repeat="storecard in storecards"
+                                 on-destroy="cardDestroyed($index)"
+                                 on-transition-right="$parent.cardSwipedRight(storecard.id)"
+                                 on-transition-left="$parent.cardSwipedLeft(storecard.id)"
+                                 style="background:url('');
+                         background-size: cover;
+                         background-position: center center;
+                         background-repeat: no-repeat;">
+                            <div class="no-text" style="text-align: center">
+                                <i class="icon-trash"></i>
+                                <br>TRASH
+                            </div>
+                            <!--<img ng-src="{{card.image}}">-->
+                            <div class="yes-text" style="text-align: center">
+                                <i class="icon-bag"></i>
+                                <br>STASH
+                            </div>
+
+                            <div class="box1">{{storecard.brand}}
+                                <br><span class="truncate">{{storecard.name}}</span>
+                                <br>${{storecard.price}}
+                                <br>294<i class="ion-android-favorite"></i></div>
+                            <!--<img src={{card.variation__image__image}}>-->
+                            <!--<a href="#/product/{{storecard.id}}" target="_self">See product</a>-->
+                            <img src="{{storecard.image}}" height="348px">
+                            </div>
+
+                        </td-card>
+                    </td-cards>
+                    <div class="bar bar-footer bar-balanced">
+                        <div class="title1">
+                            <i class="icon-trash"></i><i class="ion-ios-search-strong" native-ui-sref="stores" native-ui-sref-opts="{reload: true}" native-options="{type: 'slide', direction:'up'}"></i><i class="icon-bag" native-ui-sref="product" native-ui-sref-opts="{reload: true}" native-options="{type: 'slide', direction:'up'}"></i></div>
+                    </div>
+                </ion-pane>
+            </ion-view>
+
+

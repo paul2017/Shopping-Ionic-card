@@ -1,0 +1,57 @@
+[{
+    "image": "http://i.telegraph.co.uk/multimedia/archive/02669/fashionweek_london_2669110b.jpg",
+    "styling": null,
+    "store_name": "ASOS",
+    "featured": true,
+    "pk": 1,
+    "active": false,
+    "logo": "http://ashleighmoneysaver.co.uk/wp-content/uploads/2015/01/ASOS-logo.jpg"
+}, {
+    "image": "https://media2.wnyc.org/i/1200/627/c/80/photologue/photos/runway_tout_.jpg",
+    "styling": null,
+    "store_name": "FarFetch (AU)",
+    "featured": true,
+    "pk": 2,
+    "active": false,
+    "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/e/e6/Farfetch_Logo.svg/1280px-Farfetch_Logo.svg.png"
+}, {
+    "image": "",
+    "styling": null,
+    "store_name": "Estee Lauder",
+    "featured": false,
+    "pk": 8,
+    "active": false,
+    "logo": "https://upload.wikimedia.org/wikipedia/en/b/bb/Estee_Lauder_logo.png"
+}, {
+    "image": "http://filmschoolrejects.com/images/picture-perfect-header.jpg",
+    "styling": null,
+    "store_name": "ShopBop",
+    "featured": false,
+    "pk": 7,
+    "active": false,
+    "logo": "http://www.shescribes.com/wp-content/uploads/2012/05/Shopbop-logo.jpg"
+}, {
+    "image": "",
+    "styling": null,
+    "store_name": "General Pants",
+    "featured": false,
+    "pk": 9,
+    "active": false,
+    "logo": "http://cdn.generalpants.com.au/content/images/theme/logo-gp.png"
+}, {
+    "image": "http://d.ibtimes.co.uk/en/full/308319/paris-fashion-week-peter-coppings-collection.jpg?w=640",
+    "styling": null,
+    "store_name": "The Iconic (AU)",
+    "featured": false,
+    "pk": 6,
+    "active": true,
+    "logo": "http://findercdn.com.au.s3-website-ap-southeast-2.amazonaws.com/global/images/providers/the-iconic-logo.jpg"
+}, {
+    "image": null,
+    "styling": null,
+    "store_name": "Bloomingdales (AU)",
+    "featured": false,
+    "pk": 10,
+    "active": false,
+    "logo": null
+}]

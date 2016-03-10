@@ -1,0 +1,46 @@
+<ion-view name="cardstest">
+    <ion-pane ng-controller="CardstestCtrl">
+        <!-- <ion-spinner icon="spiral"></ion-spinner>  To be centered behind cards-->
+        <!--REMOVED: on-swipe="cardSwiped($index)"-->
+        <span ng-repeat="card in cards">
+            <div class="hidebox"><img class="storelogo-image" ng-src="{{card.store__logo}}"></div>
+        </span>
+        <td-cards>
+
+            <td-card ng-repeat="card in cards"
+                     on-destroy="cardDestroyed($index)"
+                     on-transition-right="$parent.cardSwipedRight(card.id)"
+                     on-transition-left="$parent.cardSwipedLeft(card.id)"
+                     style="background-color:white;
+                         background-size: cover;
+                         background-position: center center;
+                         background-repeat: no-repeat;">
+                <div class="no-text" style="text-align: center">
+                    <i class="icon-trash"></i>
+                    <br>TRASH
+                </div>
+                <img src={{card.image}} height="348px">
+                <div class="yes-text" style="text-align: center">
+                    <i class="icon-bag"></i>
+                    <br>STASH
+                </div>
+
+                <div class="box1">
+                        {{card.brand}} from {{card.store}}
+                    <br>{{card.name}}
+                    <br>${{card.price}}
+                    <br>28 <i class="ion-android-favorite"></i>
+                    <a href="#/product/{{card.id}}" native-ui-sref-opts="{reload: true}" native-options="{type: 'slide', direction:'up'}">See product new</a>
+                </div>
+                <!--<img src={{card.variation__image__image}}>-->
+                </div>
+            </td-card>
+        </td-cards>
+        <div class="bar bar-footer bar-balanced">
+            <div class="title1">
+                <i class="icon-trash"></i><i class="ion-ios-search-strong" native-ui-sref="stores" native-ui-sref-opts="{reload: true}" native-options="{type: 'slide', direction:'up'}"></i><i class="icon-bag" native-ui-sref="product" native-ui-sref-opts="{reload: true}" native-options="{type: 'slide', direction:'up'}"></i></div>
+        </div>
+    </ion-pane>
+</ion-view>
+
+

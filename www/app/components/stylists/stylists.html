@@ -1,0 +1,54 @@
+<ion-view name="stylists">
+<ion-pane ng-controller="stylistsCtrl">
+<ion-nav-bar>
+  <ion-nav-back-button class="button-clear">
+    <i class="ion-arrow-left-c"></i> Back 
+  </ion-nav-back-button>
+<ion-nav-title>
+        <img ui-sref="cards" class="title-image" src="http://stashdapp.com/img/stashdapplogo.png">
+    </ion-nav-title>
+</ion-nav-bar>
+
+
+            <ion-content>
+<center>
+
+
+
+  <ion-stylist ng-repeat="stylists in stylists"
+            class="stylist-thumbnail-right">
+<div class="stylistrow responsive-lg">
+  <div class="colstylist"></div>
+    <a href="#/stylistshop/{{stylists.id}}" native-ui-sref-opts="{reload: true}" native-options="{type: 'flip', direction:'down'}">
+        <img src="{{stylists.imagefemale}}">
+    </a>
+
+    <span class="stylisttext">{{stylists.name}}</span>
+</div>
+
+
+</center>
+
+<center>
+<button class="button button-full button-positive">
+  Male images
+</button>
+  <ion-stylist ng-repeat="stylists in stylists"
+            class="stylist-thumbnail-right">
+<div class="stylistrow responsive-lg">
+  <div class="colstylist"><img src="{{stylists.imagemale}}"></div>
+</div>
+</center>
+
+        </ion-content>
+
+    <div class="faketab">
+        <table>
+            <tr>
+                <td><a native-ui-sref="stores" ng-click="refinetype()" native-ui-sref-opts="{reload: true}" native-options="{type: 'slide', direction:'left'}">STORE DIRECTORY</a></td>
+                <td><a native-ui-sref="stylists" ng-click="refinetype()" native-ui-sref-opts="{reload: true}" native-options="{type: 'slide', direction:'left'}" style="border-bottom: 2px solid #3BB6A0;">STYLIST</a></td>
+            </tr>
+        </table>
+    </div>
+
+</ion-view>
